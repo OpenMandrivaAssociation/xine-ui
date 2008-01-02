@@ -31,6 +31,7 @@ BuildRequires:	libxt-devel
 BuildRequires:	X11-devel
 %endif
 #BuildRequires:	automake1.7
+BuildRoot:	%_tmppath/%name-%version-%release-buildroot
 
 %description 
 xine is a free GPL-licensed video player for UNIX-like systems.
