@@ -1,5 +1,4 @@
 %define version 0.99.5
-%define rel     1
 %define	name    xine-ui
 %define	xineversion 1.1.1
 %define	xinerel	7.1
@@ -7,7 +6,7 @@
 Name:		%name
 Summary:	A Free Video Player
 Version:	%version
-Release:	%mkrel %rel
+Release:	%mkrel 2
 License:	GPL
 Group:		Video
 Source0:	http://prdownloads.sourceforge.net/xine/%name-%version.tar.bz2
