@@ -17,7 +17,7 @@ Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 BuildRequires: desktop-file-utils
 BuildRequires:	aalib-devel
-BuildRequires:	libcaca-devel
+#BuildRequires:	libcaca-devel
 BuildRequires:	curl-devel
 BuildRequires:	png-devel
 Buildrequires:	libxine-devel >= %xineversion-%xinerel
@@ -64,13 +64,18 @@ User interface with support for linux framebuffer output.
 
 %build
 export XINE_DOCPATH="%_datadir/doc/xine-ui-%version"
-%configure2_5x --enable-vdr-keys
+%configure2_5x --enable-vdr-keys --without-caca --with-aalib
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std transform=""
 install -D -m 644 misc/desktops/xine.desktop %buildroot%_datadir/applications/%name.desktop
+
+%if %mdvver >= 200900
+xinelist=$(pkg-config --variable xine_list libxine)
+perl -pi -e "s^MimeType=.*^MimeType=$($xinelist)^" $RPM_BUILD_ROOT%{_datadir}/applications/*
+%endif
 
 desktop-file-install --vendor="" \
   --remove-category="Application" \
@@ -117,8 +122,8 @@ rm -rf $RPM_BUILD_ROOT
 %files aa
 %defattr(-,root,root)
 %doc README
-#%_bindir/aaxine
-%_bindir/cacaxine
+%_bindir/aaxine
+#%_bindir/cacaxine
 
 %files fb
 %defattr(-,root,root)
