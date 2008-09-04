@@ -6,10 +6,11 @@
 Name:		%name
 Summary:	A Free Video Player
 Version:	%version
-Release:	%mkrel 4
-License:	GPL
+Release:	%mkrel 5
+License:	GPLv2+
 Group:		Video
 Source0:	http://prdownloads.sourceforge.net/xine/%name-%version.tar.bz2
+Patch:		xine-ui-0.99.5-new_libcaca_api.patch
 URL:		http://xine.sourceforge.net/
 Requires:	xine-plugins >= %xineversion-%xinerel
 Requires:	curl	
@@ -17,7 +18,7 @@ Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 BuildRequires: desktop-file-utils
 BuildRequires:	aalib-devel
-#BuildRequires:	libcaca-devel
+BuildRequires:	libcaca-devel
 BuildRequires:	curl-devel
 BuildRequires:	png-devel
 Buildrequires:	libxine-devel >= %xineversion-%xinerel
@@ -61,10 +62,14 @@ User interface with support for linux framebuffer output.
 
 %prep
 %setup -q
+%patch -p1
+aclocal -I m4
+autoconf
+automake -a -c
 
 %build
 export XINE_DOCPATH="%_datadir/doc/xine-ui-%version"
-%configure2_5x --enable-vdr-keys --without-caca --with-aalib
+%configure2_5x --enable-vdr-keys --with-caca --with-aalib
 %make
 
 %install
@@ -123,7 +128,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc README
 %_bindir/aaxine
-#%_bindir/cacaxine
+%_bindir/cacaxine
 
 %files fb
 %defattr(-,root,root)
