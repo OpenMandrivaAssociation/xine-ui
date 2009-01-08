@@ -6,7 +6,7 @@
 Name:		%name
 Summary:	A Free Video Player
 Version:	%version
-Release:	%mkrel 6
+Release:	%mkrel 7
 License:	GPLv2+
 Group:		Video
 Source0:	http://prdownloads.sourceforge.net/xine/%name-%version.tar.bz2
@@ -68,7 +68,7 @@ autoconf
 automake -a -c
 
 %build
-export XINE_DOCPATH="%_datadir/doc/xine-ui-%version"
+export XINE_DOCPATH="%_datadir/doc/xine-ui"
 %configure2_5x --enable-vdr-keys --with-caca --with-aalib
 %make
 
