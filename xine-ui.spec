@@ -6,7 +6,7 @@
 Name:		%name
 Summary:	A Free Video Player
 Version:	%version
-Release:	%mkrel 7
+Release:	%mkrel 8
 License:	GPLv2+
 Group:		Video
 Source0:	http://prdownloads.sourceforge.net/xine/%name-%version.tar.bz2
@@ -84,9 +84,8 @@ perl -pi -e "s^MimeType=.*^MimeType=$($xinelist)^" $RPM_BUILD_ROOT%{_datadir}/ap
 
 desktop-file-install --vendor="" \
   --remove-category="Application" \
-  --add-category="Video;Player" \
-  --add-category="AudioVideo;Video" \
-  --add-category="X-MandrivaLinux-Multimedia-Video" \
+  --add-category="Video" \
+  --add-category="X-MandrivaLinux-CrossDesktop" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 
