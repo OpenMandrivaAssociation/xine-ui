@@ -6,11 +6,12 @@
 Name:		%name
 Summary:	A Free Video Player
 Version:	%version
-Release:	%mkrel 8
+Release:	%mkrel 9
 License:	GPLv2+
 Group:		Video
 Source0:	http://prdownloads.sourceforge.net/xine/%name-%version.tar.bz2
 Patch:		xine-ui-0.99.5-new_libcaca_api.patch
+Patch1:		xine-ui-0.99.5-fix-installation.patch
 URL:		http://xine.sourceforge.net/
 Requires:	xine-plugins >= %xineversion-%xinerel
 Requires:	curl	
@@ -63,6 +64,7 @@ User interface with support for linux framebuffer output.
 %prep
 %setup -q
 %patch -p1 -b .new-caca
+%patch1 -p1
 aclocal -I m4
 autoconf
 automake -a -c
