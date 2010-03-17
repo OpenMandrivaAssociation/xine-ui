@@ -1,4 +1,4 @@
-%define version 0.99.5
+%define version 0.99.6
 %define	name    xine-ui
 %define	xineversion 1.1.1
 %define	xinerel	7.1
@@ -6,12 +6,10 @@
 Name:		%name
 Summary:	A Free Video Player
 Version:	%version
-Release:	%mkrel 9
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Video
 Source0:	http://prdownloads.sourceforge.net/xine/%name-%version.tar.bz2
-Patch:		xine-ui-0.99.5-new_libcaca_api.patch
-Patch1:		xine-ui-0.99.5-fix-installation.patch
 URL:		http://xine.sourceforge.net/
 Requires:	xine-plugins >= %xineversion-%xinerel
 Requires:	curl	
@@ -63,11 +61,6 @@ User interface with support for linux framebuffer output.
 
 %prep
 %setup -q
-%patch -p1 -b .new-caca
-%patch1 -p1
-aclocal -I m4
-autoconf
-automake -a -c
 
 %build
 export XINE_DOCPATH="%_datadir/doc/xine-ui"
@@ -119,6 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 %_datadir/pixmaps/*
 %_datadir/applications/%name.desktop
 %_datadir/icons/hicolor/*/apps/xine*
+%_datadir/mime/packages/xine-ui.xml
 %_mandir/man1/*
 %lang(de) %_mandir/de/man1/*
 %lang(es) %_mandir/es/man1/*
