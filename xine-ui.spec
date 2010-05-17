@@ -6,16 +6,16 @@
 Name:		%name
 Summary:	A Free Video Player
 Version:	%version
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Video
 Source0:	http://prdownloads.sourceforge.net/xine/%name-%version.tar.bz2
+Patch0:		xine-ui-0.99.6-fix-desktop-entry.patch
 URL:		http://xine.sourceforge.net/
 Requires:	xine-plugins >= %xineversion-%xinerel
 Requires:	curl	
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
-BuildRequires: desktop-file-utils
 BuildRequires:	aalib-devel
 BuildRequires:	libcaca-devel
 BuildRequires:	curl-devel
@@ -61,6 +61,7 @@ User interface with support for linux framebuffer output.
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 export XINE_DOCPATH="%_datadir/doc/xine-ui"
@@ -76,13 +77,6 @@ install -D -m 644 misc/desktops/xine.desktop %buildroot%_datadir/applications/%n
 xinelist=$(pkg-config --variable xine_list libxine)
 perl -pi -e "s^MimeType=.*^MimeType=$($xinelist)^" $RPM_BUILD_ROOT%{_datadir}/applications/*
 %endif
-
-desktop-file-install --vendor="" \
-  --remove-category="Application" \
-  --add-category="Video" \
-  --add-category="X-MandrivaLinux-CrossDesktop" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
-
 
 #language files
 %find_lang xitk
