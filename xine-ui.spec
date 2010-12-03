@@ -6,7 +6,7 @@
 Name:		%name
 Summary:	A Free Video Player
 Version:	%version
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPLv2+
 Group:		Video
 Source0:	http://prdownloads.sourceforge.net/xine/%name-%version.tar.bz2
