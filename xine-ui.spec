@@ -6,7 +6,7 @@
 Name:		%name
 Summary:	A Free Video Player
 Version:	%version
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	GPLv2+
 Group:		Video
 Source0:	http://prdownloads.sourceforge.net/xine/%name-%version.tar.bz2
@@ -73,26 +73,10 @@ rm -rf $RPM_BUILD_ROOT
 %makeinstall_std transform=""
 install -D -m 644 misc/desktops/xine.desktop %buildroot%_datadir/applications/%name.desktop
 
-%if 0
-xinelist=$(pkg-config --variable xine_list libxine)
-perl -pi -e "s^MimeType=.*^MimeType=$($xinelist)^" $RPM_BUILD_ROOT%{_datadir}/applications/*
-%endif
-
-#language files
-%find_lang xitk
-%find_lang xine-ui
-cat xitk.lang >> xine-ui.lang
+%find_lang xine-ui --all-name
 
 rm -rf %buildroot%_datadir/doc
 rm -rf %buildroot%_datadir/xine/desktop
-
-%post
-%update_desktop_database
-%update_icon_cache hicolor
-
-%postun
-%clean_icon_cache hicolor
-%clean_desktop_database
 
 %clean
 rm -rf $RPM_BUILD_ROOT
