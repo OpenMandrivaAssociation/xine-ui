@@ -69,7 +69,7 @@ export XINE_DOCPATH="%_datadir/doc/xine-ui"
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std transform=""
 install -D -m 644 misc/desktops/xine.desktop %buildroot%_datadir/applications/%name.desktop
 
@@ -79,7 +79,7 @@ rm -rf %buildroot%_datadir/doc
 rm -rf %buildroot%_datadir/xine/desktop
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files -f xine-ui.lang
 %defattr(-,root,root)
