@@ -1,4 +1,4 @@
-%define version 0.99.6
+%define version 0.99.7
 %define	name    xine-ui
 %define	xineversion 1.1.1
 %define	xinerel	7.1
@@ -6,11 +6,10 @@
 Name:		%name
 Summary:	A Free Video Player
 Version:	%version
-Release:	%mkrel 6
+Release:	1
 License:	GPLv2+
 Group:		Video
-Source0:	http://prdownloads.sourceforge.net/xine/%name-%version.tar.bz2
-Patch0:		xine-ui-0.99.6-fix-desktop-entry.patch
+Source0:	http://downloads.sourceforge.net/project/xine/xine-lib/%{version}/%{name}-%{version}.tar.xz
 URL:		http://xine.sourceforge.net/
 Requires:	xine-plugins >= %xineversion-%xinerel
 Requires:	curl	
@@ -30,7 +29,6 @@ BuildRequires:	libxt-devel
 BuildRequires:	X11-devel
 %endif
 #BuildRequires:	automake1.7
-BuildRoot:	%_tmppath/%name-%version-%release-buildroot
 
 %description 
 xine is a free GPL-licensed video player for UNIX-like systems.
@@ -61,7 +59,6 @@ User interface with support for linux framebuffer output.
 
 %prep
 %setup -q
-%apply_patches
 
 %build
 export XINE_DOCPATH="%_datadir/doc/xine-ui"
@@ -78,17 +75,13 @@ install -D -m 644 misc/desktops/xine.desktop %buildroot%_datadir/applications/%n
 rm -rf %buildroot%_datadir/doc
 rm -rf %buildroot%_datadir/xine/desktop
 
-%clean
-rm -rf %{buildroot}
-
 %files -f xine-ui.lang
-%defattr(-,root,root)
 %doc AUTHORS ChangeLog README
 %doc doc/README*
 %_bindir/xine*
 %_datadir/xine
 %_datadir/pixmaps/*
-%_datadir/applications/%name.desktop
+%_datadir/applications/xine.desktop
 %_datadir/icons/hicolor/*/apps/xine*
 %_datadir/mime/packages/xine-ui.xml
 %_mandir/man1/*
@@ -98,13 +91,11 @@ rm -rf %{buildroot}
 %lang(pl) %_mandir/pl/man1/*
 
 %files aa
-%defattr(-,root,root)
 %doc README
 %_bindir/aaxine
 %_bindir/cacaxine
 
 %files fb
-%defattr(-,root,root)
 %doc README
 %_bindir/fbxine
 
