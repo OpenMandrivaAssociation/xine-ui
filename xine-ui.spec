@@ -1,6 +1,3 @@
-%define	xineversion 1.1.1
-%define	xinerel	7.1
-
 Name:		xine-ui
 Summary:	A Free Video Player
 Version:	0.99.7
@@ -14,14 +11,14 @@ Requires:	curl
 Requires(post):	desktop-file-utils
 Requires(postun):desktop-file-utils
 BuildRequires:	aalib-devel
-BuildRequires:	libcaca-devel
-BuildRequires:	curl-devel
-BuildRequires:	png-devel
-Buildrequires:	libxine-devel >= %{xineversion}-%{xinerel}
-BuildRequires:	lirc-devel
-BuildRequires:	ncurses-devel
-BuildRequires:	libnvtvsimple-devel
-BuildRequires:	libxt-devel
+BuildRequires:	pkgconfig(caca)
+BuildRequires:	pkgconfig(libcurl)
+BuildRequires:	pkgconfig(libpng)
+Buildrequires:	pkgconfig(libxine)
+BuildRequires:	pkgconfig(liblircclient0)
+BuildRequires:	pkgconfig(ncurses)
+BuildRequires:	pkgconfig(nvtvsimple)
+BuildRequires:	pkgconfig(xt)
 
 %description 
 xine is a free GPL-licensed video player for UNIX-like systems.
@@ -31,7 +28,7 @@ User interface for the X Window system.
 %package	aa
 Summary:	XINE - Ascii Art player
 Group:		Video
-Requires:	xine-plugins >= %xineversion-%xinerel
+Requires:	xine-plugins
 Requires:	xine-aa
 
 %description	aa
@@ -42,7 +39,7 @@ User interface with ascii art (text mode) output.
 %package	fb
 Summary:	XINE - framebuffer video player
 Group:		Video
-Requires:	xine-plugins >= %xineversion-%xinerel
+Requires:	xine-plugins
 
 %description	fb
 xine is a free GPL-licensed video player for UNIX-like systems.
