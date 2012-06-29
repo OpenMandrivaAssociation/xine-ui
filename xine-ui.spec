@@ -1,34 +1,27 @@
-%define version 0.99.7
-%define	name    xine-ui
 %define	xineversion 1.1.1
 %define	xinerel	7.1
 
-Name:		%name
+Name:		xine-ui
 Summary:	A Free Video Player
-Version:	%version
+Version:	0.99.7
 Release:	1
 License:	GPLv2+
 Group:		Video
 Source0:	http://downloads.sourceforge.net/project/xine/xine-lib/%{version}/%{name}-%{version}.tar.xz
 URL:		http://xine.sourceforge.net/
-Requires:	xine-plugins >= %xineversion-%xinerel
+Requires:	xine-plugins >= %{xineversion}-%{xinerel}
 Requires:	curl	
-Requires(post): desktop-file-utils
-Requires(postun): desktop-file-utils
+Requires(post):	desktop-file-utils
+Requires(postun):desktop-file-utils
 BuildRequires:	aalib-devel
 BuildRequires:	libcaca-devel
 BuildRequires:	curl-devel
 BuildRequires:	png-devel
-Buildrequires:	libxine-devel >= %xineversion-%xinerel
+Buildrequires:	libxine-devel >= %{xineversion}-%{xinerel}
 BuildRequires:	lirc-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	libnvtvsimple-devel
-%if %mdkversion >= 200700
 BuildRequires:	libxt-devel
-%else
-BuildRequires:	X11-devel
-%endif
-#BuildRequires:	automake1.7
 
 %description 
 xine is a free GPL-licensed video player for UNIX-like systems.
@@ -61,43 +54,42 @@ User interface with support for linux framebuffer output.
 %setup -q
 
 %build
-export XINE_DOCPATH="%_datadir/doc/xine-ui"
-%configure2_5x --enable-vdr-keys --with-caca --with-aalib
+export XINE_DOCPATH="%{_datadir}/doc/xine-ui"
+%configure2_5x	--enable-vdr-keys \
+		--with-caca \
+		--with-aalib
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std transform=""
-install -D -m 644 misc/desktops/xine.desktop %buildroot%_datadir/applications/%name.desktop
+install -m644 misc/desktops/xine.desktop -D %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %find_lang xine-ui --all-name
 
-rm -rf %buildroot%_datadir/doc
-rm -rf %buildroot%_datadir/xine/desktop
+rm -rf %{buildroot}%{_datadir}/doc
+rm -rf %{buildroot}%{_datadir}/xine/desktop
 
 %files -f xine-ui.lang
 %doc AUTHORS ChangeLog README
 %doc doc/README*
-%_bindir/xine*
-%_datadir/xine
-%_datadir/pixmaps/*
-%_datadir/applications/xine.desktop
-%_datadir/applications/xine-ui.desktop
-%_datadir/icons/hicolor/*/apps/xine*
-%_datadir/mime/packages/xine-ui.xml
-%_mandir/man1/*
-%lang(de) %_mandir/de/man1/*
-%lang(es) %_mandir/es/man1/*
-%lang(fr) %_mandir/fr/man1/*
-%lang(pl) %_mandir/pl/man1/*
+%{_bindir}/xine*
+%{_datadir}/xine
+%{_datadir}/pixmaps/*
+%{_datadir}/applications/xine.desktop
+%{_datadir}/applications/xine-ui.desktop
+%{_datadir}/icons/hicolor/*/apps/xine*
+%{_datadir}/mime/packages/xine-ui.xml
+%{_mandir}/man1/*
+%lang(de) %{_mandir}/de/man1/*
+%lang(es) %{_mandir}/es/man1/*
+%lang(fr) %{_mandir}/fr/man1/*
+%lang(pl) %{_mandir}/pl/man1/*
 
 %files aa
 %doc README
-%_bindir/aaxine
-%_bindir/cacaxine
+%{_bindir}/aaxine
+%{_bindir}/cacaxine
 
 %files fb
 %doc README
-%_bindir/fbxine
-
-
+%{_bindir}/fbxine
