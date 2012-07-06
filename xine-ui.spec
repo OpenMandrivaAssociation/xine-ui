@@ -1,12 +1,12 @@
 Name:		xine-ui
 Summary:	A Free Video Player
 Version:	0.99.7
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Video
 Source0:	http://downloads.sourceforge.net/project/xine/xine-lib/%{version}/%{name}-%{version}.tar.xz
 URL:		http://xine.sourceforge.net/
-Requires:	xine-plugins >= %{xineversion}-%{xinerel}
+Requires:	xine-plugins
 Requires:	curl	
 Requires(post):	desktop-file-utils
 Requires(postun):desktop-file-utils
