@@ -1,7 +1,7 @@
 Summary:	A Free Video Player
 Name:		xine-ui
 Version:	0.99.7
-Release:	3
+Release:	4
 License:	GPLv2+
 Group:		Video
 Url:		http://xine.sourceforge.net/
