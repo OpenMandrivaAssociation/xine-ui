@@ -8,6 +8,7 @@ Url:		http://xine.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/project/xine/xine-lib/%{version}/%{name}-%{version}.tar.xz
 Patch0:		xine-ui-0.99.7-locale.patch
 BuildRequires:	aalib-devel
+BuildRequires:	jpeg-devel
 BuildRequires:	pkgconfig(caca)
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libpng)
