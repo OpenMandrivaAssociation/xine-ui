@@ -1,0 +1,13 @@
+diff -urN xine-ui-0.99.7/src/xitk/xine-toolkit/recode.c xine-ui-0.99.7-patched/src/xitk/xine-toolkit/recode.c
+--- xine-ui-0.99.7/src/xitk/xine-toolkit/recode.c	2009-12-19 10:34:22.000000000 +1000
++++ xine-ui-0.99.7-patched/src/xitk/xine-toolkit/recode.c	2013-07-13 02:31:50.015318807 +1100
+@@ -176,8 +176,7 @@
+   { "pt_PT",    "iso88591"   },
+   { "pt_PT",    "iso885915"  },
+   { "ro_RO",    "iso88592"   },
+-  { "ru_RU",    "iso88595"   },
+-  { "ru_RU",    "koi8r"      },
++  { "ru_RU",    "utf8"       },
+   { "ru_UA",    "koi8u"      },
+   { "se_NO",    "utf8"       },
+   { "sk_SK",    "iso88592"   },

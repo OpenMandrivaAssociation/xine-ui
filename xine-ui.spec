@@ -1,15 +1,12 @@
-Name:		xine-ui
 Summary:	A Free Video Player
+Name:		xine-ui
 Version:	0.99.7
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Video
+Url:		http://xine.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/project/xine/xine-lib/%{version}/%{name}-%{version}.tar.xz
-URL:		http://xine.sourceforge.net/
-Requires:	xine-plugins
-Requires:	curl	
-Requires(post):	desktop-file-utils
-Requires(postun):desktop-file-utils
+Patch0:		xine-ui-0.99.7-locale.patch
 BuildRequires:	aalib-devel
 BuildRequires:	pkgconfig(caca)
 BuildRequires:	pkgconfig(libcurl)
@@ -19,15 +16,16 @@ BuildRequires:	pkgconfig(liblircclient0)
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(nvtvsimple)
 BuildRequires:	pkgconfig(xt)
+Requires:	curl
+Requires:	xine-plugins
 
-%description 
+%description
 xine is a free GPL-licensed video player for UNIX-like systems.
 
 User interface for the X Window system.
 
 %package	aa
 Summary:	XINE - Ascii Art player
-Group:		Video
 Requires:	xine-plugins
 Requires:	xine-aa
 
@@ -38,7 +36,6 @@ User interface with ascii art (text mode) output.
 
 %package	fb
 Summary:	XINE - framebuffer video player
-Group:		Video
 Requires:	xine-plugins
 
 %description	fb
@@ -46,9 +43,9 @@ xine is a free GPL-licensed video player for UNIX-like systems.
 
 User interface with support for linux framebuffer output.
 
-
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 export XINE_DOCPATH="%{_datadir}/doc/xine-ui"
@@ -90,3 +87,4 @@ rm -rf %{buildroot}%{_datadir}/xine/desktop
 %files fb
 %doc README
 %{_bindir}/fbxine
+
