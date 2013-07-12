@@ -9,6 +9,7 @@ Source0:	http://downloads.sourceforge.net/project/xine/xine-lib/%{version}/%{nam
 Patch0:		xine-ui-0.99.7-locale.patch
 BuildRequires:	aalib-devel
 BuildRequires:	jpeg-devel
+BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(caca)
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libpng)
@@ -16,7 +17,9 @@ Buildrequires:	pkgconfig(libxine)
 BuildRequires:	pkgconfig(liblircclient0)
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(nvtvsimple)
+BuildRequires:	pkgconfig(xscrnsaver)
 BuildRequires:	pkgconfig(xt)
+BuildRequires:	pkgconfig(xtst)
 Requires:	curl
 Requires:	xine-plugins
 
