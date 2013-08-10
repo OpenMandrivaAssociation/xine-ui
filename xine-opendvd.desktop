@@ -1,0 +1,24 @@
+[Desktop Entry]
+X-KDE-Solid-Predicate=[ StorageVolume.ignored == false AND OpticalDisc.availableContent == 'Data|VideoDvd' ]
+Type=Service
+Actions=open;
+
+[Desktop Action open]
+Name=Open with Video Player (Xine)
+Name[de]=Mit dem Video-Abspieler (Xine) öffnen
+Name[el]=Άνοιγμα με τον αναπαραγωγέα βίντεο (Xine)
+Name[en_GB]=Open with Video Player (Xine)
+Name[es]=Abrir con el reproductor de vídeo (Xine)
+Name[et]=Ava videomängijaga (Xine)
+Name[eu]=Ireki bideo jolearekin (Xine)
+Name[fr]=Ouvrir avec le lecteur vidéo (Xine)
+Name[nb]=Åpne med videoavspiller (Xine)
+Name[pt]=Abrir com o leitor de vídeo (Xine)
+Name[pt_BR]=Abrir com o leitor de vídeo (Xine)
+Name[ro]=Deschide cu lectorul video (Xine)
+Name[ru]=Открыть в видеоплеере (Xine)
+Name[tr]=Film Oynatıcı (Xine) ile aç
+Name[zh_CN]=用视频播放器(Xine)打开
+
+Exec=xine dvd://%f
+Icon=xine

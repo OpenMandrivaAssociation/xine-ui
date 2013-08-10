@@ -1,11 +1,12 @@
 Summary:	A Free Video Player
 Name:		xine-ui
 Version:	0.99.7
-Release:	4
+Release:	7
 License:	GPLv2+
 Group:		Video
 Url:		http://xine.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/project/xine/xine-lib/%{version}/%{name}-%{version}.tar.xz
+Source1:	xine-opendvd.desktop
 Patch0:		xine-ui-0.99.7-locale.patch
 BuildRequires:	aalib-devel
 BuildRequires:	jpeg-devel
@@ -17,6 +18,7 @@ Buildrequires:	pkgconfig(libxine)
 BuildRequires:	pkgconfig(liblircclient0)
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(nvtvsimple)
+BuildRequires:	pkgconfig(xft)
 BuildRequires:	pkgconfig(xscrnsaver)
 BuildRequires:	pkgconfig(xt)
 BuildRequires:	pkgconfig(xtst)
@@ -61,6 +63,8 @@ export XINE_DOCPATH="%{_datadir}/doc/xine-ui"
 %install
 %makeinstall_std transform=""
 install -m644 misc/desktops/xine.desktop -D %{buildroot}%{_datadir}/applications/%{name}.desktop
+
+install -m644 %{SOURCE1} -D %{buildroot}%{_datadir}/apps/solid/actions/xine-opendvd.desktop
 
 %find_lang xine-ui --all-name
 
