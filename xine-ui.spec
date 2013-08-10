@@ -79,6 +79,7 @@ rm -rf %{buildroot}%{_datadir}/xine/desktop
 %{_datadir}/pixmaps/*
 %{_datadir}/applications/xine.desktop
 %{_datadir}/applications/xine-ui.desktop
+%{_datadir}/apps/solid/actions/xine-opendvd.desktop
 %{_datadir}/icons/hicolor/*/apps/xine*
 %{_datadir}/mime/packages/xine-ui.xml
 %{_mandir}/man1/*
