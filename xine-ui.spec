@@ -13,7 +13,7 @@ BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(caca)
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libpng)
-Buildrequires:	pkgconfig(libxine)
+BuildRequires:	pkgconfig(libxine)
 BuildRequires:	pkgconfig(liblircclient0)
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(nvtvsimple)
