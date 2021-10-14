@@ -14,11 +14,14 @@ BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(caca)
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libpng)
-Buildrequires:	pkgconfig(libxine)
+BuildRequires:	pkgconfig(libxine)
 BuildRequires:	pkgconfig(liblircclient0)
+BuildRequires:	pkgconfig(libnsl)
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(nvtvsimple)
+BuildRequires:	pkgconfig(readline)
 BuildRequires:	pkgconfig(xft)
+BuildRequires:	pkgconfig(xinerama)
 BuildRequires:	pkgconfig(xscrnsaver)
 BuildRequires:	pkgconfig(xt)
 BuildRequires:	pkgconfig(xv)
@@ -59,13 +62,13 @@ User interface with support for linux framebuffer output.
 export CC=gcc
 export CXX=g++
 export XINE_DOCPATH="%{_datadir}/doc/xine-ui"
-%configure2_5x	--enable-vdr-keys \
+%configure	--enable-vdr-keys \
 		--with-caca \
 		--with-aalib
-%make
+%make_build
 
 %install
-%makeinstall_std transform=""
+%make_install transform=""
 install -m644 misc/desktops/xine.desktop -D %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 install -m644 %{SOURCE1} -D %{buildroot}%{_datadir}/apps/solid/actions/xine-opendvd.desktop
