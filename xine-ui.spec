@@ -56,6 +56,8 @@ User interface with support for linux framebuffer output.
 %patch0 -p1
 
 %build
+export CC=gcc
+export CXX=g++
 export XINE_DOCPATH="%{_datadir}/doc/xine-ui"
 %configure2_5x	--enable-vdr-keys \
 		--with-caca \
