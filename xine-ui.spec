@@ -21,7 +21,9 @@ BuildRequires:	pkgconfig(nvtvsimple)
 BuildRequires:	pkgconfig(xft)
 BuildRequires:	pkgconfig(xscrnsaver)
 BuildRequires:	pkgconfig(xt)
+BuildRequires:	pkgconfig(xv)
 BuildRequires:	pkgconfig(xtst)
+BuildRequires:	pkgconfig(xxf86vm)
 Requires:	curl
 Requires:	xine-plugins
 
