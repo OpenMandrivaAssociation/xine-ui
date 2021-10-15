@@ -18,7 +18,7 @@ BuildRequires:	pkgconfig(libxine)
 BuildRequires:	pkgconfig(liblircclient0)
 BuildRequires:	pkgconfig(libnsl)
 BuildRequires:	pkgconfig(ncurses)
-%ifnarch %{armx} %{arm}
+%ifarch x86_64
 BuildRequires:	pkgconfig(nvtvsimple)
 %endif
 BuildRequires:	pkgconfig(readline)
