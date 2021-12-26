@@ -18,9 +18,9 @@ BuildRequires:	pkgconfig(libxine)
 BuildRequires:	pkgconfig(liblircclient0)
 BuildRequires:	pkgconfig(libnsl)
 BuildRequires:	pkgconfig(ncurses)
-%ifarch x86_64
-BuildRequires:	pkgconfig(nvtvsimple)
-%endif
+#ifarch x86_64
+#BuildRequires:	pkgconfig(nvtvsimple)
+#endif
 BuildRequires:	pkgconfig(readline)
 BuildRequires:	pkgconfig(xft)
 BuildRequires:	pkgconfig(xinerama)
