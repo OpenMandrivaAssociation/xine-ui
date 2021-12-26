@@ -1,6 +1,6 @@
 Summary:	A Free Video Player
 Name:		xine-ui
-Version:	0.99.12
+Version:	0.99.13
 Release:	1
 License:	GPLv2+
 Group:		Video
