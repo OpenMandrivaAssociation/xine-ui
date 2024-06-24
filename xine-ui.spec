@@ -58,7 +58,7 @@ User interface with support for linux framebuffer output.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch 0 -p1
 
 %build
 export CC=gcc
