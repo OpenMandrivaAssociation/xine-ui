@@ -8,6 +8,7 @@ Url:		https://xine.sourceforge.net/
 Source0:	https://downloads.sourceforge.net/project/xine/xine-lib/%{version}/%{name}-%{version}.tar.xz
 Source1:	xine-opendvd.desktop
 Patch0:		xine-ui-0.99.7-locale.patch
+Patch1:		xine-ui-configure-c99.patch
 BuildRequires:	aalib-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	readline-devel
@@ -57,8 +58,7 @@ xine is a free GPL-licensed video player for UNIX-like systems.
 User interface with support for linux framebuffer output.
 
 %prep
-%setup -q
-%patch 0 -p1
+%autosetup -p1
 
 %build
 export CC=gcc
