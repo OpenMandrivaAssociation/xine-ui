@@ -8,6 +8,11 @@ Url:		https://xine.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/project/xine/xine-lib/%{version}/%{name}-%{version}.tar.xz
 Source1:	xine-opendvd.desktop
 Patch0:		xine-ui-0.99.7-locale.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	aalib-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	readline-devel
