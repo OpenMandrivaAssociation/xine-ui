@@ -62,8 +62,7 @@ xine is a free GPL-licensed video player for UNIX-like systems.
 User interface with support for linux framebuffer output.
 
 %prep
-%setup -q
-%patch0 -p1
+%autosetup -p1
 
 %build
 export CC=gcc
