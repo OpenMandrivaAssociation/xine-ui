@@ -9,6 +9,8 @@ Source0:	https://downloads.sourceforge.net/project/xine/xine-ui/%{version}/%{nam
 Source1:	xine-opendvd.desktop
 Patch0:		xine-ui-0.99.7-locale.patch
 Patch1:		xine-ui-c23-getopt.patch
+# The AALIB probe calls strdup without a declaration. C23 rejects that and drops aaxine.
+Patch2:		xine-ui-c23-aalib.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool-base

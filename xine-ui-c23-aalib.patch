@@ -1,0 +1,30 @@
+diff -u -r a/configure b/configure
+--- a/configure	2023-11-14 23:13:20.000000000 +0100
++++ b/configure	2023-11-14 23:13:20.000000000 +0100
+@@ -12916,6 +12916,7 @@
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <string.h>
+ #include <aalib.h>
+ 
+ int main () {
+@@ -13029,6 +13030,7 @@
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <string.h>
+ #include <aalib.h>
+ 
+ int main () {
+diff -u -r a/m4/aa.m4 b/m4/aa.m4
+--- a/m4/aa.m4	2023-11-14 23:13:20.000000000 +0100
++++ b/m4/aa.m4	2023-11-14 23:13:20.000000000 +0100
+@@ -51,6 +51,7 @@
+   AC_RUN_IFELSE([AC_LANG_SOURCE([[
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <string.h>
+ #include <aalib.h>
+ 
+ int main () {
