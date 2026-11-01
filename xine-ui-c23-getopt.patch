@@ -1,0 +1,21 @@
+The bundled getopt.h is on the -I path, so <getopt.h> is this file.
+C23 treats getopt() as getopt(void), which clashes with glibc.
+--- a/src/common/getopt.h	2026-11-02 00:06:23.185724679 +0100
++++ b/src/common/getopt.h	2026-11-02 00:06:23.198534101 +0100
+@@ -127,14 +127,9 @@
+    `getopt'.  */
+ 
+ #if defined __STDC__ && __STDC__
+-# ifdef __GNU_LIBRARY__
+-/* Many other libraries have conflicting prototypes for getopt, with
+-   differences in the consts, in stdlib.h.  To avoid compilation
+-   errors, only prototype getopt for the GNU C library.  */
++/* This header is reached before features.h, so __GNU_LIBRARY__ is still
++   unset. C23 treats an empty parameter list as (void). */
+ extern int getopt (int __argc, char *const *__argv, const char *__shortopts);
+-# else /* not __GNU_LIBRARY__ */
+-extern int getopt ();
+-# endif /* __GNU_LIBRARY__ */
+ 
+ # ifndef __need_getopt
+ extern int getopt_long (int __argc, char *const *__argv, const char *__shortopts,

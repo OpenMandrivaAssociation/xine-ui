@@ -8,6 +8,7 @@ Url:		https://xine.sourceforge.net/
 Source0:	https://downloads.sourceforge.net/project/xine/xine-ui/%{version}/%{name}-%{version}.tar.xz
 Source1:	xine-opendvd.desktop
 Patch0:		xine-ui-0.99.7-locale.patch
+Patch1:		xine-ui-c23-getopt.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool-base
