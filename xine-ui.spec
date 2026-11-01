@@ -104,6 +104,7 @@ rm -rf %{buildroot}%{_datadir}/xine/desktop
 %lang(de) %{_mandir}/de/man1/*
 %lang(es) %{_mandir}/es/man1/*
 %lang(fr) %{_mandir}/fr/man1/*
+%lang(nl) %{_mandir}/nl/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
 
 %files aa
