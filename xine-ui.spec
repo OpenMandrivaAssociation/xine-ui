@@ -34,6 +34,8 @@ BuildRequires:	pkgconfig(xt)
 BuildRequires:	pkgconfig(xv)
 BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pkgconfig(xxf86vm)
+# AM_ICONV treats glibc iconv as broken unless the EUC-JP module is present.
+BuildRequires:	locales-extra-charsets
 Requires:	curl
 Requires:	xine-plugins
 
